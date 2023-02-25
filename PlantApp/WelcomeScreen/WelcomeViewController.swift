@@ -85,29 +85,25 @@ private extension WelcomeViewController {
         titleView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(24)
             make.top.equalToSuperview().inset(59)
-            make.width.equalTo(300)
             make.height.equalTo(85)
         }
         
         plantView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom).offset(24)
-            make.height.equalTo(499)
-            make.width.equalTo(375)
+            make.leading.trailing.equalToSuperview()
         }
         
         bottomButton.snp.makeConstraints { make in
             make.top.equalTo(plantView.snp.bottom)
-            make.width.equalTo(327)
             make.height.equalTo(56)
-            make.leading.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(24)
         }
         
         termsOfUse.snp.makeConstraints { make in
             make.top.equalTo(bottomButton.snp.bottom).offset(17)
             make.bottom.equalToSuperview().inset(29)
             make.height.equalTo(30)
-            make.width.equalTo(232)
-            make.leading.equalToSuperview().inset(73)
+            make.leading.trailing.equalToSuperview().inset(73)
         }
     }
 }

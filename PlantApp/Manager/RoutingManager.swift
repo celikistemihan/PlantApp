@@ -9,8 +9,8 @@ import Foundation
 final class RoutingManager {
     static let shared = RoutingManager()
     
-    lazy var welcomeViewController: WelcomeViewController = {
-        let controller = WelcomeViewController()
+    lazy var welcomeViewController: PaywallViewController = {
+        let controller = PaywallViewController()
         return controller
     }()
 }

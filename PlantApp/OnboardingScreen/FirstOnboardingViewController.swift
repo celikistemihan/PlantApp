@@ -12,6 +12,7 @@ final class FirstOnboardingViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.992, green: 1, blue: 0.996, alpha: 1).cgColor
         view.clipsToBounds = true
         return view
     }()
@@ -66,19 +67,17 @@ private extension FirstOnboardingViewController {
         titleView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(24)
             make.top.equalToSuperview().inset(59)
-            make.width.equalTo(303)
             make.height.equalTo(66)
         }
         
         plantView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom).offset(12)
-            make.height.equalTo(523)
-            make.width.equalTo(375)
+            make.leading.trailing.equalToSuperview()
         }
         
         bottomButton.snp.makeConstraints { make in
             make.top.equalTo(plantView.snp.bottom)
-            make.width.equalTo(327)
+            make.bottom.equalToSuperview().inset(76)
             make.height.equalTo(56)
             make.leading.trailing.equalToSuperview().inset(24)
         }
