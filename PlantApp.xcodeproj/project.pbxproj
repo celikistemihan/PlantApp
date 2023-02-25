@@ -22,6 +22,14 @@
 		F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225029A8E90F00DF5449 /* WelcomeRouter.swift */; };
 		F79A225329A8E94B00DF5449 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225229A8E94B00DF5449 /* WelcomeViewModel.swift */; };
 		F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225529AA0C1200DF5449 /* PaywallViewController.swift */; };
+		F79A225929AA23A600DF5449 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225829AA23A600DF5449 /* NetworkManager.swift */; };
+		F79A225C29AA250D00DF5449 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225B29AA250D00DF5449 /* QuestionModel.swift */; };
+		F79A225F29AA262600DF5449 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225E29AA262600DF5449 /* HomeViewController.swift */; };
+		F79A226129AA262C00DF5449 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226029AA262C00DF5449 /* HomeViewModel.swift */; };
+		F79A226429AA2A6D00DF5449 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226329AA2A6D00DF5449 /* QuestionCell.swift */; };
+		F79A226829AA2BEB00DF5449 /* QuestionCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226729AA2BEB00DF5449 /* QuestionCellPresentation.swift */; };
+		F79A226A29AA2C3E00DF5449 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226929AA2C3E00DF5449 /* UIImage+Extension.swift */; };
+		F79A226C29AA430200DF5449 /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226B29AA430200DF5449 /* PremiumButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +49,14 @@
 		F79A225029A8E90F00DF5449 /* WelcomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
 		F79A225229A8E94B00DF5449 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		F79A225529AA0C1200DF5449 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
+		F79A225829AA23A600DF5449 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F79A225B29AA250D00DF5449 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
+		F79A225E29AA262600DF5449 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F79A226029AA262C00DF5449 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F79A226329AA2A6D00DF5449 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		F79A226729AA2BEB00DF5449 /* QuestionCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellPresentation.swift; sourceTree = "<group>"; };
+		F79A226929AA2C3E00DF5449 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		F79A226B29AA430200DF5449 /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +90,9 @@
 		F79A222529A7CFCB00DF5449 /* PlantApp */ = {
 			isa = PBXGroup;
 			children = (
+				F79A225D29AA261E00DF5449 /* Home */,
+				F79A225A29AA250600DF5449 /* Data */,
+				F79A225729AA239800DF5449 /* Network */,
 				F79A225429AA0C0500DF5449 /* PaywallScreen */,
 				F79A224329A7D2F300DF5449 /* OnboardingScreen */,
 				F79A224029A7D2BA00DF5449 /* Utility */,
@@ -111,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				F79A224129A7D2C400DF5449 /* NavigationUtility.swift */,
+				F79A226929AA2C3E00DF5449 /* UIImage+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -131,6 +151,50 @@
 				F79A225529AA0C1200DF5449 /* PaywallViewController.swift */,
 			);
 			path = PaywallScreen;
+			sourceTree = "<group>";
+		};
+		F79A225729AA239800DF5449 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F79A225829AA23A600DF5449 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F79A225A29AA250600DF5449 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F79A225B29AA250D00DF5449 /* QuestionModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F79A225D29AA261E00DF5449 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F79A226629AA2BDA00DF5449 /* QuestionCellPresentation */,
+				F79A226229AA2A6300DF5449 /* CustomView */,
+				F79A225E29AA262600DF5449 /* HomeViewController.swift */,
+				F79A226029AA262C00DF5449 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F79A226229AA2A6300DF5449 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				F79A226329AA2A6D00DF5449 /* QuestionCell.swift */,
+				F79A226B29AA430200DF5449 /* PremiumButtonView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		F79A226629AA2BDA00DF5449 /* QuestionCellPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				F79A226729AA2BEB00DF5449 /* QuestionCellPresentation.swift */,
+			);
+			path = QuestionCellPresentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,13 +276,21 @@
 				F79A222B29A7CFCB00DF5449 /* ViewController.swift in Sources */,
 				F79A223F29A7D1C400DF5449 /* WelcomeViewController.swift in Sources */,
 				F79A224229A7D2C400DF5449 /* NavigationUtility.swift in Sources */,
+				F79A226129AA262C00DF5449 /* HomeViewModel.swift in Sources */,
+				F79A225929AA23A600DF5449 /* NetworkManager.swift in Sources */,
+				F79A226C29AA430200DF5449 /* PremiumButtonView.swift in Sources */,
 				F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */,
+				F79A225F29AA262600DF5449 /* HomeViewController.swift in Sources */,
+				F79A226429AA2A6D00DF5449 /* QuestionCell.swift in Sources */,
 				F79A222729A7CFCB00DF5449 /* AppDelegate.swift in Sources */,
 				F79A223C29A7D16D00DF5449 /* RoutingManager.swift in Sources */,
+				F79A225C29AA250D00DF5449 /* QuestionModel.swift in Sources */,
 				F79A225329A8E94B00DF5449 /* WelcomeViewModel.swift in Sources */,
 				F79A224D29A8C2FF00DF5449 /* SecondOnboardingViewController.swift in Sources */,
+				F79A226829AA2BEB00DF5449 /* QuestionCellPresentation.swift in Sources */,
 				F79A224529A7D2FF00DF5449 /* OnboardingContainerViewController.swift in Sources */,
 				F79A224B29A8BCC300DF5449 /* FirstOnboardingViewController.swift in Sources */,
+				F79A226A29AA2C3E00DF5449 /* UIImage+Extension.swift in Sources */,
 				F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */,
 				F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */,
 			);
