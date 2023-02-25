@@ -22,7 +22,7 @@ final class PaywallViewController: UIViewController {
         imageView.image = UIImage(named: "paywall-header")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
-       // imageView.sizeToFit()
+        // imageView.sizeToFit()
         return imageView
     }()
     
@@ -35,8 +35,8 @@ final class PaywallViewController: UIViewController {
     private let bottomButton: UIButton = {
         let button = UIButton()
         button.setTitle("Try free for 3 days", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
         button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         button.backgroundColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         button.layer.cornerRadius = 12.0
@@ -69,11 +69,8 @@ private extension PaywallViewController {
         }
         
         headerImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-       
-//
-//            make.top.leading.trailing.equalToSuperview()
-//            make.bottom.equalToSuperview().inset(300)
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(300)
         }
         
         paywallHeaderTextView.snp.makeConstraints { make in

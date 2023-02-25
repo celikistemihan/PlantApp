@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F79A222729A7CFCB00DF5449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A222629A7CFCB00DF5449 /* AppDelegate.swift */; };
-		F79A222B29A7CFCB00DF5449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A222A29A7CFCB00DF5449 /* ViewController.swift */; };
 		F79A223029A7CFCD00DF5449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79A222F29A7CFCD00DF5449 /* Assets.xcassets */; };
 		F79A223329A7CFCD00DF5449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A223129A7CFCD00DF5449 /* LaunchScreen.storyboard */; };
 		F79A223C29A7D16D00DF5449 /* RoutingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A223B29A7D16D00DF5449 /* RoutingManager.swift */; };
@@ -30,12 +29,13 @@
 		F79A226829AA2BEB00DF5449 /* QuestionCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226729AA2BEB00DF5449 /* QuestionCellPresentation.swift */; };
 		F79A226A29AA2C3E00DF5449 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226929AA2C3E00DF5449 /* UIImage+Extension.swift */; };
 		F79A226C29AA430200DF5449 /* PremiumButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226B29AA430200DF5449 /* PremiumButtonView.swift */; };
+		F79A226E29AAA26700DF5449 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A226D29AAA26700DF5449 /* CategoryCell.swift */; };
+		F79A227129AAA45E00DF5449 /* CategoryCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A227029AAA45E00DF5449 /* CategoryCellPresentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F79A222329A7CFCB00DF5449 /* PlantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79A222629A7CFCB00DF5449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F79A222A29A7CFCB00DF5449 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F79A222F29A7CFCD00DF5449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F79A223229A7CFCD00DF5449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F79A223429A7CFCD00DF5449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +57,8 @@
 		F79A226729AA2BEB00DF5449 /* QuestionCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellPresentation.swift; sourceTree = "<group>"; };
 		F79A226929AA2C3E00DF5449 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F79A226B29AA430200DF5449 /* PremiumButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumButtonView.swift; sourceTree = "<group>"; };
+		F79A226D29AAA26700DF5449 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F79A227029AAA45E00DF5449 /* CategoryCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellPresentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,6 @@
 				F79A223D29A7D1B200DF5449 /* WelcomeScreen */,
 				F79A223A29A7D15E00DF5449 /* Manager */,
 				F79A222629A7CFCB00DF5449 /* AppDelegate.swift */,
-				F79A222A29A7CFCB00DF5449 /* ViewController.swift */,
 				F79A222F29A7CFCD00DF5449 /* Assets.xcassets */,
 				F79A223129A7CFCD00DF5449 /* LaunchScreen.storyboard */,
 				F79A223429A7CFCD00DF5449 /* Info.plist */,
@@ -172,6 +173,7 @@
 		F79A225D29AA261E00DF5449 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F79A226F29AAA44F00DF5449 /* CategoryCellPresentation */,
 				F79A226629AA2BDA00DF5449 /* QuestionCellPresentation */,
 				F79A226229AA2A6300DF5449 /* CustomView */,
 				F79A225E29AA262600DF5449 /* HomeViewController.swift */,
@@ -185,6 +187,7 @@
 			children = (
 				F79A226329AA2A6D00DF5449 /* QuestionCell.swift */,
 				F79A226B29AA430200DF5449 /* PremiumButtonView.swift */,
+				F79A226D29AAA26700DF5449 /* CategoryCell.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -195,6 +198,14 @@
 				F79A226729AA2BEB00DF5449 /* QuestionCellPresentation.swift */,
 			);
 			path = QuestionCellPresentation;
+			sourceTree = "<group>";
+		};
+		F79A226F29AAA44F00DF5449 /* CategoryCellPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				F79A227029AAA45E00DF5449 /* CategoryCellPresentation.swift */,
+			);
+			path = CategoryCellPresentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,13 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F79A222B29A7CFCB00DF5449 /* ViewController.swift in Sources */,
 				F79A223F29A7D1C400DF5449 /* WelcomeViewController.swift in Sources */,
 				F79A224229A7D2C400DF5449 /* NavigationUtility.swift in Sources */,
 				F79A226129AA262C00DF5449 /* HomeViewModel.swift in Sources */,
 				F79A225929AA23A600DF5449 /* NetworkManager.swift in Sources */,
 				F79A226C29AA430200DF5449 /* PremiumButtonView.swift in Sources */,
 				F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */,
+				F79A227129AAA45E00DF5449 /* CategoryCellPresentation.swift in Sources */,
 				F79A225F29AA262600DF5449 /* HomeViewController.swift in Sources */,
 				F79A226429AA2A6D00DF5449 /* QuestionCell.swift in Sources */,
 				F79A222729A7CFCB00DF5449 /* AppDelegate.swift in Sources */,
@@ -290,6 +301,7 @@
 				F79A226829AA2BEB00DF5449 /* QuestionCellPresentation.swift in Sources */,
 				F79A224529A7D2FF00DF5449 /* OnboardingContainerViewController.swift in Sources */,
 				F79A224B29A8BCC300DF5449 /* FirstOnboardingViewController.swift in Sources */,
+				F79A226E29AAA26700DF5449 /* CategoryCell.swift in Sources */,
 				F79A226A29AA2C3E00DF5449 /* UIImage+Extension.swift in Sources */,
 				F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */,
 				F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */,

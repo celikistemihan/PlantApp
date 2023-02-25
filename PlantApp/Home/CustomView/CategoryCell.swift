@@ -1,37 +1,42 @@
 //
-//  QuestionCell.swift
+//  CategoryCell.swift
 //  PlantApp
+//
+//  Created by aisenur on 25.02.2023.
 //
 
 import UIKit
 import SnapKit
 
-final class QuestionCell: UICollectionViewCell {
+final class CategoryCell: UICollectionViewCell {
     
-    static let identifier: String = "question_cell_identifier"
+    static let identifier: String = "category_cell_identifier"
 
+    
     //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 12.0
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = CGColor(red: 60/255, green: 60/255, blue: 67/255, alpha: 0.1)
         view.clipsToBounds = true
         return view
     }()
     
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
-        label.adjustsFontSizeToFitWidth = true
+        label.textColor = .black
         return label
     }()
     
-    func prepare(with presentation: QuestionCellPresentation) {
+    func prepare(with presentation: CategoryCellPresentation) {
         titleLabel.text = presentation.text
         guard let url = URL(string: presentation.image) else { return }
         UIImage.loadFrom(url: url) { [weak self] image in
@@ -49,7 +54,7 @@ final class QuestionCell: UICollectionViewCell {
     }
 }
 
-private extension QuestionCell {
+private extension CategoryCell {
     func setupUI() {
         addSubview(containerView)
         containerView.addSubview(backgroundImage)
@@ -64,9 +69,8 @@ private extension QuestionCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(14)
-            make.bottom.equalToSuperview().inset(13)
-            make.top.equalToSuperview().inset(111)
+            make.leading.trailing.top.equalToSuperview().inset(16)
+            
         }
     }
 }
