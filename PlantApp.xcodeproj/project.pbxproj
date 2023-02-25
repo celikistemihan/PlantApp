@@ -16,6 +16,12 @@
 		F79A224229A7D2C400DF5449 /* NavigationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A224129A7D2C400DF5449 /* NavigationUtility.swift */; };
 		F79A224529A7D2FF00DF5449 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A224429A7D2FF00DF5449 /* OnboardingContainerViewController.swift */; };
 		F79A224829A7D3C300DF5449 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F79A224729A7D3C300DF5449 /* SnapKit */; };
+		F79A224B29A8BCC300DF5449 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A224A29A8BCC300DF5449 /* FirstOnboardingViewController.swift */; };
+		F79A224D29A8C2FF00DF5449 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A224C29A8C2FF00DF5449 /* SecondOnboardingViewController.swift */; };
+		F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A224E29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift */; };
+		F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225029A8E90F00DF5449 /* WelcomeRouter.swift */; };
+		F79A225329A8E94B00DF5449 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225229A8E94B00DF5449 /* WelcomeViewModel.swift */; };
+		F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A225529AA0C1200DF5449 /* PaywallViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,12 @@
 		F79A223E29A7D1C400DF5449 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F79A224129A7D2C400DF5449 /* NavigationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtility.swift; sourceTree = "<group>"; };
 		F79A224429A7D2FF00DF5449 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
+		F79A224A29A8BCC300DF5449 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
+		F79A224C29A8C2FF00DF5449 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
+		F79A224E29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouterProtocol.swift; sourceTree = "<group>"; };
+		F79A225029A8E90F00DF5449 /* WelcomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
+		F79A225229A8E94B00DF5449 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		F79A225529AA0C1200DF5449 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 		F79A222529A7CFCB00DF5449 /* PlantApp */ = {
 			isa = PBXGroup;
 			children = (
+				F79A225429AA0C0500DF5449 /* PaywallScreen */,
 				F79A224329A7D2F300DF5449 /* OnboardingScreen */,
 				F79A224029A7D2BA00DF5449 /* Utility */,
 				F79A223D29A7D1B200DF5449 /* WelcomeScreen */,
@@ -87,6 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				F79A223E29A7D1C400DF5449 /* WelcomeViewController.swift */,
+				F79A224E29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift */,
+				F79A225029A8E90F00DF5449 /* WelcomeRouter.swift */,
+				F79A225229A8E94B00DF5449 /* WelcomeViewModel.swift */,
 			);
 			path = WelcomeScreen;
 			sourceTree = "<group>";
@@ -103,8 +119,18 @@
 			isa = PBXGroup;
 			children = (
 				F79A224429A7D2FF00DF5449 /* OnboardingContainerViewController.swift */,
+				F79A224A29A8BCC300DF5449 /* FirstOnboardingViewController.swift */,
+				F79A224C29A8C2FF00DF5449 /* SecondOnboardingViewController.swift */,
 			);
 			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
+		F79A225429AA0C0500DF5449 /* PaywallScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F79A225529AA0C1200DF5449 /* PaywallViewController.swift */,
+			);
+			path = PaywallScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +212,15 @@
 				F79A222B29A7CFCB00DF5449 /* ViewController.swift in Sources */,
 				F79A223F29A7D1C400DF5449 /* WelcomeViewController.swift in Sources */,
 				F79A224229A7D2C400DF5449 /* NavigationUtility.swift in Sources */,
+				F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */,
 				F79A222729A7CFCB00DF5449 /* AppDelegate.swift in Sources */,
 				F79A223C29A7D16D00DF5449 /* RoutingManager.swift in Sources */,
+				F79A225329A8E94B00DF5449 /* WelcomeViewModel.swift in Sources */,
+				F79A224D29A8C2FF00DF5449 /* SecondOnboardingViewController.swift in Sources */,
 				F79A224529A7D2FF00DF5449 /* OnboardingContainerViewController.swift in Sources */,
+				F79A224B29A8BCC300DF5449 /* FirstOnboardingViewController.swift in Sources */,
+				F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */,
+				F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
