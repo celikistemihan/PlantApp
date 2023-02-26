@@ -14,11 +14,9 @@ final class NavigationUtility {
         }
         
         var topController = rootViewController
-        
         while let newTopController = topController.presentedViewController {
             topController = newTopController
         }
-        
         return topController
     }
     

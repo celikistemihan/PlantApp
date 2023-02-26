@@ -22,7 +22,6 @@ final class PaywallViewController: UIViewController {
         imageView.image = UIImage(named: "paywall-header")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
-        // imageView.sizeToFit()
         return imageView
     }()
     
@@ -30,6 +29,12 @@ final class PaywallViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "paywall-header-text")
         return imageView
+    }()
+    
+    private let inactiveButton: TwoLinedButton = {
+       let button = TwoLinedButton()
+        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+        return button
     }()
     
     private let bottomButton: UIButton = {
@@ -63,6 +68,7 @@ private extension PaywallViewController {
         containerView.addSubview(paywallHeaderTextView)
         containerView.addSubview(bottomButton)
         containerView.addSubview(paywallInfoText)
+        containerView.addSubview(inactiveButton)
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -77,6 +83,11 @@ private extension PaywallViewController {
             make.leading.trailing.equalToSuperview().inset(24)
             make.top.equalToSuperview().inset(264)
             make.height.equalTo(71)
+        }
+        
+        inactiveButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(paywallHeaderTextView.snp.bottom).offset(24)
         }
         
         bottomButton.snp.makeConstraints { make in
