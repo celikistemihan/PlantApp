@@ -7,6 +7,13 @@
 import UIKit
 import SnapKit
 
+
+struct TwoLinedButtonViewModel {
+    let primaryText: String
+    let secondaryText: String
+    let imageView: String
+}
+
 final class TwoLinedButton: UIButton {
     
     override init(frame: CGRect) {
@@ -22,36 +29,47 @@ final class TwoLinedButton: UIButton {
         super.layoutSubviews()
     }
     
+    private let leftImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
     private let primaryLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 1
         label.textColor = .white
-        label.text = "1 Month"
         label.font = UIFont(name: "Rubik-Bold", size: 16)
         return label
     }()
     
     private let secondaryLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 1
-        label.textColor = .white
+        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
         label.font = UIFont(name: "Rubik-Regular", size: 12.0)
-        label.text = "$2.99/month, auto renewable"
         return label
     }()
+    
+    public func configure(with viewModel: TwoLinedButtonViewModel) {
+        primaryLabel.text = viewModel.primaryText
+        secondaryLabel.text = viewModel.secondaryText
+        leftImageView.image = UIImage(named: viewModel.imageView)
+    }
 }
 
 extension TwoLinedButton {
     func setupUI() {
         addSubview(primaryLabel)
         addSubview(secondaryLabel)
+        addSubview(leftImageView)
         clipsToBounds = true
         layer.cornerRadius = 14
         layer.borderWidth = 0.5
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0.3)
         
         primaryLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().inset(12)
+            make.top.equalToSuperview().inset(13)
+            make.leading.equalTo(leftImageView.snp.trailing).offset(12)
         }
         
         secondaryLabel.snp.makeConstraints { make in
@@ -59,6 +77,11 @@ extension TwoLinedButton {
             make.bottom.equalToSuperview().inset(13)
             make.leading.equalTo(primaryLabel)
         }
+        
+        leftImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(18)
+        }
     }
-
+    
 }
