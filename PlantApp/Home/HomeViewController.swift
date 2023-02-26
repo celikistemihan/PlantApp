@@ -13,6 +13,11 @@ final class HomeViewController: UIViewController {
     let premiumView = PremiumButtonView()
     let tabBarVC = UITabBarController()
     
+    enum Const {
+        static let imageEdgeInsets = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
+        static let titleOffset = UIOffset(horizontal: 0, vertical: -20)
+    }
+    
     //TODO: ScrollView ekle parent olarak
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +33,16 @@ final class HomeViewController: UIViewController {
         categoryCollectionView.delegate = self
     }
     
+    //MARK: - TabBar Items Configuration
     private func configureTabBar() {
         tabBarVC.tabBar.tintColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
+        
         let firstItem = UITabBarItem(title: "Home", image: UIImage(named: "home-icon"), tag: 0)
         let secondItem = UITabBarItem(title: "Diagnose", image: UIImage(named: "diagnose-icon"), tag: 1)
-        //let thirdItem = UITabBarItem(title: "", image: UIImage(named: "scan-icon"), tag: 2)
         let fourthItem = UITabBarItem(title: "My Garden", image: UIImage(named: "garden-icon"), tag: 3)
         let fifthItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-icon"), tag: 4)
         
+        //Dummy ViewControllers
         let firstVC = FirstVC()
         firstVC.tabBarItem = firstItem
         firstVC.tabBarItem.badgeColor = .green
@@ -53,13 +60,23 @@ final class HomeViewController: UIViewController {
         
         tabBarVC.setViewControllers([firstVC, secondVC, thirdVC, fourthVC, fifthVC], animated: false)
         tabBarVC.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+
+        calculateTabBarItems(viewControllers: tabBarVC.viewControllers!)
         setupMiddleButton()
     }
     
+    func calculateTabBarItems(viewControllers: [UIViewController]) {
+        for vc in viewControllers {
+            vc.tabBarItem.imageInsets = Const.imageEdgeInsets
+            vc.tabBarItem.titlePositionAdjustment = Const.titleOffset
+        }
+    }
+    
+    //MARK: - Middle TabBar Item Configuration
     func setupMiddleButton() {
-           let scanButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+           let scanButton = UIButton(frame: CGRect(x: 0, y: 0, width: 74, height: 64))
            var scanButtonFrame = scanButton.frame
-           scanButtonFrame.origin.y = tabBarVC.view.bounds.height - scanButtonFrame.height - 23
+           scanButtonFrame.origin.y = tabBarVC.view.bounds.height - scanButtonFrame.height - 30
            scanButtonFrame.origin.x = tabBarVC.view.bounds.width/2 - scanButtonFrame.size.width/2
            scanButton.frame = scanButtonFrame
 
@@ -201,7 +218,7 @@ private extension HomeViewController {
         tabBarVC.view.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(64)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(view.snp.bottom)
         }
         
         headerView.snp.makeConstraints { make in
