@@ -37,12 +37,33 @@ final class PaywallViewController: UIViewController {
         return imageView
     }()
     
-    private let inactiveButton: TwoLinedButton = {
+    private let oneMonthSubButton: TwoLinedButton = {
         let button = TwoLinedButton()
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.05)
         button.configure(with: TwoLinedButtonViewModel(primaryText: "1 Month", secondaryText: "$2.99/month, auto renewable", imageView: "inactive"))
+        button.addTarget(self, action: #selector(oneMonthSubButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    private let oneYearSubButton: TwoLinedButton = {
+        let button = TwoLinedButton()
+        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.05)
+        button.configure(with: TwoLinedButtonViewModel(primaryText: "1 Year", secondaryText: "First 3 days free, then $529,99/year", imageView: "active"))
+        button.addTarget(self, action: #selector(oneYearSubButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    //TODO: Refactor
+    @objc func oneYearSubButtonTapped() {
+        oneMonthSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Month", secondaryText: "$2.99/month, auto renewable", imageView: "inactive"))
+        oneYearSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Year", secondaryText: "First 3 days free, then $529,99/year", imageView: "active"))
+    }
+    
+    //TODO: Refactor
+    @objc func oneMonthSubButtonTapped() {
+        oneMonthSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Month", secondaryText: "$2.99/month, auto renewable", imageView: "active"))
+        oneYearSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Year", secondaryText: "First 3 days free, then $529,99/year", imageView: "inactive"))
+    }
     
     private let bottomButton: UIButton = {
         let button = UIButton()
@@ -116,7 +137,8 @@ private extension PaywallViewController {
         containerView.addSubview(paywallHeaderTextView)
         containerView.addSubview(bottomButton)
         containerView.addSubview(paywallInfoText)
-        containerView.addSubview(inactiveButton)
+        containerView.addSubview(oneMonthSubButton)
+        containerView.addSubview(oneYearSubButton)
         //        containerView.addSubview(bottomStackView)
         //        bottomStackView.addArrangedSubview(UIView())
         //        bottomStackView.addArrangedSubview(termsButton)
@@ -146,7 +168,12 @@ private extension PaywallViewController {
             make.height.equalTo(71)
         }
         
-        inactiveButton.snp.makeConstraints { make in
+        oneMonthSubButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalTo(oneYearSubButton.snp.top).offset(-26)
+        }
+        
+        oneYearSubButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(bottomButton.snp.top).offset(-26)
         }
