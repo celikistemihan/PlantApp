@@ -9,6 +9,8 @@ import UIKit
 
 final class FirstOnboardingViewController: UIViewController {
     
+    var viewModel: FirstOnboardingViewModel!
+
     //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
@@ -44,12 +46,17 @@ final class FirstOnboardingViewController: UIViewController {
         button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         button.backgroundColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         button.layer.cornerRadius = 12.0
-        //button.addTarget(self, action: #selector(bottomButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(bottomButtonTapped), for: .touchUpInside)
         return button
     }()
     
+    @objc func bottomButtonTapped() {
+        viewModel.proceedToPaywallScreen()
+    }
+    
     override func viewDidLoad() {
         setupUI()
+        self.viewModel = FirstOnboardingViewModel(router: FirstOnboardingRouter())
     }
 }
 

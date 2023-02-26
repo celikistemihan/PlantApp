@@ -55,6 +55,12 @@
 		F79A22A129ABD9CE00DF5449 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A029ABD9CE00DF5449 /* ThirdVC.swift */; };
 		F79A22A329ABD9D500DF5449 /* FourthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A229ABD9D500DF5449 /* FourthVC.swift */; };
 		F79A22A529ABD9DD00DF5449 /* FifthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A429ABD9DD00DF5449 /* FifthVC.swift */; };
+		F79A22A729AC1DAC00DF5449 /* FirstOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A629AC1DAC00DF5449 /* FirstOnboardingViewModel.swift */; };
+		F79A22A929AC1DD900DF5449 /* FirstOnboardingRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A829AC1DD900DF5449 /* FirstOnboardingRouterProtocol.swift */; };
+		F79A22AB29AC1E4C00DF5449 /* FirstOnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22AA29AC1E4C00DF5449 /* FirstOnboardingRouter.swift */; };
+		F79A22AF29AC1F8E00DF5449 /* SecondOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22AE29AC1F8E00DF5449 /* SecondOnboardingViewModel.swift */; };
+		F79A22B129AC1F9400DF5449 /* SecondOnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22B029AC1F9400DF5449 /* SecondOnboardingRouter.swift */; };
+		F79A22B329AC1F9C00DF5449 /* SecondOnboardingRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22B229AC1F9C00DF5449 /* SecondOnboardingRouterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +113,12 @@
 		F79A22A029ABD9CE00DF5449 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		F79A22A229ABD9D500DF5449 /* FourthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthVC.swift; sourceTree = "<group>"; };
 		F79A22A429ABD9DD00DF5449 /* FifthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthVC.swift; sourceTree = "<group>"; };
+		F79A22A629AC1DAC00DF5449 /* FirstOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewModel.swift; sourceTree = "<group>"; };
+		F79A22A829AC1DD900DF5449 /* FirstOnboardingRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingRouterProtocol.swift; sourceTree = "<group>"; };
+		F79A22AA29AC1E4C00DF5449 /* FirstOnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingRouter.swift; sourceTree = "<group>"; };
+		F79A22AE29AC1F8E00DF5449 /* SecondOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewModel.swift; sourceTree = "<group>"; };
+		F79A22B029AC1F9400DF5449 /* SecondOnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingRouter.swift; sourceTree = "<group>"; };
+		F79A22B229AC1F9C00DF5449 /* SecondOnboardingRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingRouterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +202,9 @@
 		F79A224329A7D2F300DF5449 /* OnboardingScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F79A22AD29AC1F7900DF5449 /* SecondOnboardingScreen */,
+				F79A22AC29AC1F5E00DF5449 /* FirstOnboardingScreen */,
 				F79A224429A7D2FF00DF5449 /* OnboardingContainerViewController.swift */,
-				F79A224A29A8BCC300DF5449 /* FirstOnboardingViewController.swift */,
-				F79A224C29A8C2FF00DF5449 /* SecondOnboardingViewController.swift */,
 			);
 			path = OnboardingScreen;
 			sourceTree = "<group>";
@@ -304,6 +316,28 @@
 			path = VCS;
 			sourceTree = "<group>";
 		};
+		F79A22AC29AC1F5E00DF5449 /* FirstOnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F79A224A29A8BCC300DF5449 /* FirstOnboardingViewController.swift */,
+				F79A22A629AC1DAC00DF5449 /* FirstOnboardingViewModel.swift */,
+				F79A22A829AC1DD900DF5449 /* FirstOnboardingRouterProtocol.swift */,
+				F79A22AA29AC1E4C00DF5449 /* FirstOnboardingRouter.swift */,
+			);
+			path = FirstOnboardingScreen;
+			sourceTree = "<group>";
+		};
+		F79A22AD29AC1F7900DF5449 /* SecondOnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F79A224C29A8C2FF00DF5449 /* SecondOnboardingViewController.swift */,
+				F79A22AE29AC1F8E00DF5449 /* SecondOnboardingViewModel.swift */,
+				F79A22B029AC1F9400DF5449 /* SecondOnboardingRouter.swift */,
+				F79A22B229AC1F9C00DF5449 /* SecondOnboardingRouterProtocol.swift */,
+			);
+			path = SecondOnboardingScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -405,17 +439,22 @@
 				F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */,
 				F79A227129AAA45E00DF5449 /* CategoryCellPresentation.swift in Sources */,
 				F79A229D29ABD9AB00DF5449 /* FirstVC.swift in Sources */,
+				F79A22B329AC1F9C00DF5449 /* SecondOnboardingRouterProtocol.swift in Sources */,
 				F79A225F29AA262600DF5449 /* HomeViewController.swift in Sources */,
 				F79A226429AA2A6D00DF5449 /* QuestionCell.swift in Sources */,
 				F79A227529AB79B000DF5449 /* TwoLinedButton.swift in Sources */,
 				F79A22A529ABD9DD00DF5449 /* FifthVC.swift in Sources */,
 				F79A222729A7CFCB00DF5449 /* AppDelegate.swift in Sources */,
+				F79A22A729AC1DAC00DF5449 /* FirstOnboardingViewModel.swift in Sources */,
 				F79A223C29A7D16D00DF5449 /* RoutingManager.swift in Sources */,
 				F79A225C29AA250D00DF5449 /* QuestionModel.swift in Sources */,
+				F79A22AF29AC1F8E00DF5449 /* SecondOnboardingViewModel.swift in Sources */,
+				F79A22A929AC1DD900DF5449 /* FirstOnboardingRouterProtocol.swift in Sources */,
 				F79A225329A8E94B00DF5449 /* WelcomeViewModel.swift in Sources */,
 				F79A229629ABACCA00DF5449 /* PaywallCollectionCell.swift in Sources */,
 				F79A229829ABB59A00DF5449 /* PaywallCellPresentation.swift in Sources */,
 				F79A224D29A8C2FF00DF5449 /* SecondOnboardingViewController.swift in Sources */,
+				F79A22AB29AC1E4C00DF5449 /* FirstOnboardingRouter.swift in Sources */,
 				F79A226829AA2BEB00DF5449 /* QuestionCellPresentation.swift in Sources */,
 				F79A224529A7D2FF00DF5449 /* OnboardingContainerViewController.swift in Sources */,
 				F79A224B29A8BCC300DF5449 /* FirstOnboardingViewController.swift in Sources */,
@@ -425,6 +464,7 @@
 				F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */,
 				F79A229429ABA2E000DF5449 /* UIButton+Extension.swift in Sources */,
 				F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */,
+				F79A22B129AC1F9400DF5449 /* SecondOnboardingRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

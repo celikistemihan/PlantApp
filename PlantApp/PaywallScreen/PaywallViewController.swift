@@ -155,6 +155,7 @@ final class PaywallViewController: UIViewController {
         
         paywallCollectionView.delegate = self
         paywallCollectionView.dataSource = self
+        self.navigationItem.setHidesBackButton(true, animated: true)
         setupUI()
     }
     

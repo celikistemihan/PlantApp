@@ -194,7 +194,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == self.questionCollectionView {
             return CGSize(width: 240, height: 164)
         }
-        return CGSize(width: 158, height: 164)
+        return CGSize(width: (collectionView.frame.width/2) * 0.90, height: 164)
     }
 }
 
