@@ -15,6 +15,7 @@ final class QuestionCell: UICollectionViewCell {
         let view = UIView()
         view.layer.cornerRadius = 12.0
         view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1).cgColor
         view.clipsToBounds = true
         return view
     }()
@@ -28,6 +29,7 @@ final class QuestionCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .white
+        label.font = UIFont(name: "Rubik", size: 15)
         label.adjustsFontSizeToFitWidth = true
         return label
     }()

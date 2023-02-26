@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     let premiumView = PremiumButtonView()
     let tabBarVC = UITabBarController()
     
+    //TODO: ScrollView ekle parent olarak
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = HomeViewModel()
@@ -31,7 +32,7 @@ final class HomeViewController: UIViewController {
         tabBarVC.tabBar.tintColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         let firstItem = UITabBarItem(title: "Home", image: UIImage(named: "home-icon"), tag: 0)
         let secondItem = UITabBarItem(title: "Diagnose", image: UIImage(named: "diagnose-icon"), tag: 1)
-        let thirdItem = UITabBarItem(title: "", image: UIImage(named: "scan-icon"), tag: 2)
+        //let thirdItem = UITabBarItem(title: "", image: UIImage(named: "scan-icon"), tag: 2)
         let fourthItem = UITabBarItem(title: "My Garden", image: UIImage(named: "garden-icon"), tag: 3)
         let fifthItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-icon"), tag: 4)
         
@@ -43,7 +44,6 @@ final class HomeViewController: UIViewController {
         secondVC.tabBarItem = secondItem
         
         let thirdVC = ThirdVC()
-        thirdVC.tabBarItem = thirdItem
         
         let fourthVC = FourthVC()
         fourthVC.tabBarItem = fourthItem
@@ -53,7 +53,23 @@ final class HomeViewController: UIViewController {
         
         tabBarVC.setViewControllers([firstVC, secondVC, thirdVC, fourthVC, fifthVC], animated: false)
         tabBarVC.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        setupMiddleButton()
     }
+    
+    func setupMiddleButton() {
+           let scanButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+           var scanButtonFrame = scanButton.frame
+           scanButtonFrame.origin.y = tabBarVC.view.bounds.height - scanButtonFrame.height - 23
+           scanButtonFrame.origin.x = tabBarVC.view.bounds.width/2 - scanButtonFrame.size.width/2
+           scanButton.frame = scanButtonFrame
+
+           scanButton.backgroundColor = .clear
+           scanButton.layer.cornerRadius = scanButtonFrame.height/2
+           view.addSubview(scanButton)
+
+           scanButton.setImage(UIImage(named: "scan-icon"), for: .normal)
+           view.layoutIfNeeded()
+       }
 
     //MARK: - Views
     private let containerView: UIView = {
@@ -184,7 +200,7 @@ private extension HomeViewController {
         
         tabBarVC.view.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(84)
+            make.height.equalTo(64)
             make.bottom.equalToSuperview()
         }
         

@@ -31,7 +31,8 @@ final class CategoryCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = UIColor(red: 19/255, green: 35/255, blue: 27/255, alpha: 1)
+        label.font = UIFont(name: "Rubik-Medium", size: 16)
         return label
     }()
     
