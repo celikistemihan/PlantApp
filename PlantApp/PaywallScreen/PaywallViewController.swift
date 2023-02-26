@@ -29,6 +29,11 @@ final class PaywallViewController: UIViewController {
         return view
     }()
     
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "close-button"), for: .normal)
@@ -39,7 +44,7 @@ final class PaywallViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "paywall-header")
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -152,6 +157,16 @@ final class PaywallViewController: UIViewController {
         paywallCollectionView.dataSource = self
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+    }
 }
 
 //MARK: - CollectionView Methods
@@ -171,14 +186,21 @@ extension PaywallViewController: UICollectionViewDataSource {
 
 extension PaywallViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 158, height: 164)
+        return CGSize(width: 156, height: 130)
     }
 }
 
 //MARK: - SetupUI
 private extension PaywallViewController {
+    //TODO: ScrollView ekle
     func setupUI() {
-        self.view.addSubview(containerView)
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        scrollView.automaticallyAdjustsScrollIndicatorInsets = false
+        
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
         containerView.addSubview(headerImageView)
         containerView.addSubview(closeButton)
         containerView.addSubview(paywallHeaderTextView)
@@ -194,13 +216,18 @@ private extension PaywallViewController {
         //        bottomStackView.addArrangedSubview(restoreButton)
         //        bottomStackView.addArrangedSubview(UIView())
         
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.trailing.leading.equalTo(view)
+        }
+        
         containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalTo(self.scrollView)
+            make.left.right.equalTo(self.view)
         }
         
         headerImageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(300)
+            make.bottom.equalTo(paywallCollectionView.snp.top).offset(24)
         }
         
         closeButton.snp.makeConstraints { make in
@@ -212,14 +239,14 @@ private extension PaywallViewController {
         
         paywallHeaderTextView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(24)
-            make.top.equalToSuperview().inset(264)
+            make.bottom.equalTo(paywallCollectionView.snp.top).offset(-24)
             make.height.equalTo(71)
         }
         
         paywallCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(24)
-            make.top.equalTo(paywallHeaderTextView.snp.bottom).offset(16)
-            make.height.equalTo(200)
+            make.leading.trailing.equalTo(oneMonthSubButton)
+            make.height.equalTo(130)
+            make.bottom.equalTo(oneMonthSubButton.snp.top).offset(-24)
         }
         
         oneMonthSubButton.snp.makeConstraints { make in
@@ -233,7 +260,7 @@ private extension PaywallViewController {
         }
         
         bottomButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalTo(oneYearSubButton)
             make.bottom.equalToSuperview().inset(70)
             make.height.equalTo(52)
         }
