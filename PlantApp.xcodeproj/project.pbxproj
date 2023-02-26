@@ -46,6 +46,7 @@
 		F79A229029AB7D5400DF5449 /* Rubik-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F79A228229AB7D5400DF5449 /* Rubik-ExtraBoldItalic.ttf */; };
 		F79A229129AB7D5400DF5449 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F79A228329AB7D5400DF5449 /* Rubik-SemiBold.ttf */; };
 		F79A229229AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F79A228429AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf */; };
+		F79A229429ABA2E000DF5449 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229329ABA2E000DF5449 /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		F79A228229AB7D5400DF5449 /* Rubik-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-ExtraBoldItalic.ttf"; path = "../../../../Downloads/Rubik/static/Rubik-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		F79A228329AB7D5400DF5449 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-SemiBold.ttf"; path = "../../../../Downloads/Rubik/static/Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		F79A228429AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-SemiBoldItalic.ttf"; path = "../../../../Downloads/Rubik/static/Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		F79A229329ABA2E000DF5449 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				F79A224129A7D2C400DF5449 /* NavigationUtility.swift */,
 				F79A226929AA2C3E00DF5449 /* UIImage+Extension.swift */,
+				F79A229329ABA2E000DF5449 /* UIButton+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				F79A226E29AAA26700DF5449 /* CategoryCell.swift in Sources */,
 				F79A226A29AA2C3E00DF5449 /* UIImage+Extension.swift in Sources */,
 				F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */,
+				F79A229429ABA2E000DF5449 /* UIButton+Extension.swift in Sources */,
 				F79A225629AA0C1200DF5449 /* PaywallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

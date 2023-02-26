@@ -12,6 +12,8 @@ struct TwoLinedButtonViewModel {
     let primaryText: String
     let secondaryText: String
     let imageView: String
+    let borderWidth: CGFloat
+    let borderColor: CGColor
 }
 
 final class TwoLinedButton: UIButton {
@@ -54,6 +56,8 @@ final class TwoLinedButton: UIButton {
         primaryLabel.text = viewModel.primaryText
         secondaryLabel.text = viewModel.secondaryText
         leftImageView.image = UIImage(named: viewModel.imageView)
+        self.layer.borderWidth = viewModel.borderWidth
+        self.layer.borderColor = viewModel.borderColor
     }
 }
 
@@ -64,8 +68,7 @@ extension TwoLinedButton {
         addSubview(leftImageView)
         clipsToBounds = true
         layer.cornerRadius = 14
-        layer.borderWidth = 0.5
-        layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+      
         
         primaryLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(13)

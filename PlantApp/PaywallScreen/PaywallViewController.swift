@@ -9,6 +9,14 @@ import SnapKit
 
 final class PaywallViewController: UIViewController {
     
+    private enum Const {
+        static let oneMonthPrimaryText = "1 Month"
+        static let oneMonthSecondaryText = "$2.99/month, auto renewable"
+        static let oneYearPrimaryText = "1 Year"
+        static let oneYearSecondaryText = "First 3 days free, then $529,99/year"
+        static let paywallInfoText = "After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable"
+    }
+    
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -39,30 +47,29 @@ final class PaywallViewController: UIViewController {
     
     private let oneMonthSubButton: TwoLinedButton = {
         let button = TwoLinedButton()
+        button.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneMonthPrimaryText, secondaryText: Const.oneMonthSecondaryText, imageView: "inactive", borderWidth: 0.5, borderColor: CGColor(red: 1, green: 1, blue: 1, alpha: 0.3)))
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.05)
-        button.configure(with: TwoLinedButtonViewModel(primaryText: "1 Month", secondaryText: "$2.99/month, auto renewable", imageView: "inactive"))
         button.addTarget(self, action: #selector(oneMonthSubButtonTapped), for: .touchUpInside)
         return button
     }()
     
     private let oneYearSubButton: TwoLinedButton = {
         let button = TwoLinedButton()
-        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.05)
-        button.configure(with: TwoLinedButtonViewModel(primaryText: "1 Year", secondaryText: "First 3 days free, then $529,99/year", imageView: "active"))
+        button.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneYearPrimaryText, secondaryText: Const.oneYearSecondaryText, imageView: "active", borderWidth: 1.5, borderColor: CGColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)))
         button.addTarget(self, action: #selector(oneYearSubButtonTapped), for: .touchUpInside)
         return button
     }()
     
     //TODO: Refactor
     @objc func oneYearSubButtonTapped() {
-        oneMonthSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Month", secondaryText: "$2.99/month, auto renewable", imageView: "inactive"))
-        oneYearSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Year", secondaryText: "First 3 days free, then $529,99/year", imageView: "active"))
+        oneMonthSubButton.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneMonthPrimaryText, secondaryText: Const.oneMonthSecondaryText, imageView: "inactive", borderWidth: 0.5, borderColor: CGColor(red: 1, green: 1, blue: 1, alpha: 0.3)))
+        oneYearSubButton.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneYearPrimaryText, secondaryText: Const.oneYearSecondaryText, imageView: "active", borderWidth: 1.5, borderColor: CGColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)))
     }
     
     //TODO: Refactor
     @objc func oneMonthSubButtonTapped() {
-        oneMonthSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Month", secondaryText: "$2.99/month, auto renewable", imageView: "active"))
-        oneYearSubButton.configure(with: TwoLinedButtonViewModel(primaryText: "1 Year", secondaryText: "First 3 days free, then $529,99/year", imageView: "inactive"))
+        oneMonthSubButton.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneMonthPrimaryText, secondaryText: Const.oneMonthSecondaryText, imageView: "active", borderWidth: 1.5, borderColor:  CGColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)))
+        oneYearSubButton.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneYearPrimaryText, secondaryText: Const.oneYearSecondaryText, imageView: "inactive", borderWidth: 0.5, borderColor: CGColor(red: 1, green: 1, blue: 1, alpha: 0.3)))
     }
     
     private let bottomButton: UIButton = {
@@ -79,7 +86,7 @@ final class PaywallViewController: UIViewController {
     
     private let paywallInfoText: UILabel = {
         let label = UILabel()
-        label.text = "After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable"
+        label.text = Const.paywallInfoText
         label.font = UIFont(name: "Rubik", size: 9)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.52)
