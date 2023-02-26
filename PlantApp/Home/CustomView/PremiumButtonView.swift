@@ -7,7 +7,7 @@ import UIKit
 import SnapKit
 
 final class PremiumButtonView: UIView {
-    
+    //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.layer.backgroundColor = UIColor(red: 0.142, green: 0.126, blue: 0.102, alpha: 1).cgColor
@@ -23,8 +23,8 @@ final class PremiumButtonView: UIView {
     }()
     
     private let emailIconContainer: UIView = {
-       let view = UIView()
-       return view
+        let view = UIView()
+        return view
     }()
     
     private let infoText: UIImageView = {
@@ -48,7 +48,7 @@ final class PremiumButtonView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+//MARK: - SetupUI
 private extension PremiumButtonView {
     func setupUI() {
         addSubview(containerView)
@@ -66,7 +66,7 @@ private extension PremiumButtonView {
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalTo(infoText.snp.leading)
             make.centerY.equalTo(infoText)
-           // make.width.equalTo(36)
+            // make.width.equalTo(36)
         }
         
         infoText.snp.makeConstraints { make in

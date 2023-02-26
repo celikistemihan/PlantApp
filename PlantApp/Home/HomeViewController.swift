@@ -11,12 +11,15 @@ final class HomeViewController: UIViewController {
     
     var viewModel: HomeViewModel!
     let premiumView = PremiumButtonView()
+    let tabBarVC = UITabBarController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = HomeViewModel()
         bindViewModel()
         setupUI()
+        configureTabBar()
+        
         questionCollectionView.dataSource = self
         questionCollectionView.delegate = self
         
@@ -24,17 +27,41 @@ final class HomeViewController: UIViewController {
         categoryCollectionView.delegate = self
     }
     
+    private func configureTabBar() {
+        tabBarVC.tabBar.tintColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
+        let firstItem = UITabBarItem(title: "Home", image: UIImage(named: "home-icon"), tag: 0)
+        let secondItem = UITabBarItem(title: "Diagnose", image: UIImage(named: "diagnose-icon"), tag: 1)
+        let thirdItem = UITabBarItem(title: "", image: UIImage(named: "scan-icon"), tag: 2)
+        let fourthItem = UITabBarItem(title: "My Garden", image: UIImage(named: "garden-icon"), tag: 3)
+        let fifthItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-icon"), tag: 4)
+        
+        let firstVC = FirstVC()
+        firstVC.tabBarItem = firstItem
+        firstVC.tabBarItem.badgeColor = .green
+        
+        let secondVC = SecondVC()
+        secondVC.tabBarItem = secondItem
+        
+        let thirdVC = ThirdVC()
+        thirdVC.tabBarItem = thirdItem
+        
+        let fourthVC = FourthVC()
+        fourthVC.tabBarItem = fourthItem
+        
+        let fifthVC = FifthVC()
+        fifthVC.tabBarItem = fifthItem
+        
+        tabBarVC.setViewControllers([firstVC, secondVC, thirdVC, fourthVC, fifthVC], animated: false)
+        tabBarVC.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+
+    //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.clipsToBounds = true
         return view
     }()
-    
-//    private let scrollView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        return scrollView
-//    }
     
     private let headerView: UIImageView = {
         let imageView = UIImageView()
@@ -49,13 +76,12 @@ final class HomeViewController: UIViewController {
     }()
     
     private let searchBar: UISearchBar = {
-       let searchBar = UISearchBar()
+        let searchBar = UISearchBar()
         searchBar.placeholder = "Search for plants"
         searchBar.searchBarStyle = .default
         searchBar.backgroundImage = UIImage()
         searchBar.layer.cornerRadius = 12.0
         searchBar.setSearchFieldBackgroundImage(UIImage(named: "search-bar"), for: .normal)
-        
         return searchBar
     }()
     
@@ -85,7 +111,6 @@ final class HomeViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    
 }
 
 //MARK: - Binding
@@ -107,10 +132,44 @@ private extension HomeViewController {
     }
 }
 
-private extension HomeViewController {
+//MARK: - CollectionView Methods
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.questionCollectionView {
+            return viewModel.questionCount
+        }
+        return viewModel.categoryCount
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.questionCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuestionCell.identifier, for: indexPath) as! QuestionCell
+            let question = viewModel.getQuestion(at: indexPath.row)
+            cell.prepare(with: question)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
+            let category = viewModel.getCategory(at: indexPath.row)
+            cell.prepare(with: category)
+            return cell
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == self.questionCollectionView {
+            return CGSize(width: 240, height: 164)
+        }
+        return CGSize(width: 158, height: 164)
+    }
+}
+
+//MARK: - SetupUI
+private extension HomeViewController {
     func setupUI() {
         self.view.addSubview(containerView)
+        self.view.addSubview(tabBarVC.view)
         containerView.addSubview(headerView)
         containerView.addSubview(leafImageView)
         containerView.addSubview(searchBar)
@@ -118,10 +177,15 @@ private extension HomeViewController {
         containerView.addSubview(premiumView)
         containerView.addSubview(questionCollectionView)
         containerView.addSubview(categoryCollectionView)
-
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        tabBarVC.view.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(84)
+            make.bottom.equalToSuperview()
         }
         
         headerView.snp.makeConstraints { make in
@@ -161,45 +225,4 @@ private extension HomeViewController {
             make.bottom.equalToSuperview()
         }
     }
-}
-
-extension HomeViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.questionCollectionView {
-            return viewModel.questionCount
-        }
-        return viewModel.categoryCount
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.questionCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuestionCell.identifier, for: indexPath) as! QuestionCell
-            let question = viewModel.getQuestion(at: indexPath.row)
-            cell.prepare(with: question)
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
-            let category = viewModel.getCategory(at: indexPath.row)
-            cell.prepare(with: category)
-            return cell
-        }
-       
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if collectionView == self.questionCollectionView {
-            return CGSize(width: 240, height: 164)
-        }
-        
-        return CGSize(width: 158, height: 164)
-    }
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    //        return UIEdgeInsets(top: 15, left: 0, bottom: 25, right: 0)
-    //    }
 }

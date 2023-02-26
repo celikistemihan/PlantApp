@@ -11,7 +11,6 @@ import SnapKit
 final class CategoryCell: UICollectionViewCell {
     
     static let identifier: String = "category_cell_identifier"
-
     
     //MARK: - Views
     private let containerView: UIView = {
@@ -36,6 +35,15 @@ final class CategoryCell: UICollectionViewCell {
         return label
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func prepare(with presentation: CategoryCellPresentation) {
         titleLabel.text = presentation.text
         guard let url = URL(string: presentation.image) else { return }
@@ -43,17 +51,9 @@ final class CategoryCell: UICollectionViewCell {
             self?.backgroundImage.image = image
         }
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-        
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
+//MARK: - SetupUI
 private extension CategoryCell {
     func setupUI() {
         addSubview(containerView)
@@ -70,7 +70,6 @@ private extension CategoryCell {
         
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.top.equalToSuperview().inset(16)
-            
         }
     }
 }

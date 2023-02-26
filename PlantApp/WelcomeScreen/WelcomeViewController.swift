@@ -9,6 +9,7 @@ final class WelcomeViewController: UIViewController {
     
     var viewModel: WelcomeViewModel!
     
+    //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -38,7 +39,6 @@ final class WelcomeViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Get Started", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-
         button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         button.backgroundColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         button.layer.cornerRadius = 12.0
@@ -60,11 +60,11 @@ final class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         self.viewModel = WelcomeViewModel(router: WelcomeRouter())
         self.navigationItem.setHidesBackButton(true, animated: true)
-
         setupUI()
     }
 }
 
+//MARK: - SetupUI
 private extension WelcomeViewController {
     func setupUI() {
         self.view.addSubview(containerView)

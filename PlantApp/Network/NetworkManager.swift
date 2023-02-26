@@ -18,7 +18,6 @@ final class FetchItemsService {
     private enum Const {
         static let baseUrl = "https://dummy-api-jtg6bessta-ey.a.run.app/getQuestions"
         static let another = "https://dummy-api-jtg6bessta-ey.a.run.app/getCategories"
-
     }
     
     func fetchQuestionData(completion: @escaping QuestionListCompletionHandler) {
@@ -55,5 +54,4 @@ final class FetchItemsService {
             }.resume()
         }
     }
-    
 }

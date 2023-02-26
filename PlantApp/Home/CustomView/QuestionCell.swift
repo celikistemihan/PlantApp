@@ -9,11 +9,12 @@ import SnapKit
 final class QuestionCell: UICollectionViewCell {
     
     static let identifier: String = "question_cell_identifier"
-
+    
     //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 12.0
+        view.layer.borderWidth = 1.0
         view.clipsToBounds = true
         return view
     }()
@@ -31,6 +32,15 @@ final class QuestionCell: UICollectionViewCell {
         return label
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func prepare(with presentation: QuestionCellPresentation) {
         titleLabel.text = presentation.text
         guard let url = URL(string: presentation.image) else { return }
@@ -39,16 +49,9 @@ final class QuestionCell: UICollectionViewCell {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-        
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
+//MARK: - Setup UI
 private extension QuestionCell {
     func setupUI() {
         addSubview(containerView)

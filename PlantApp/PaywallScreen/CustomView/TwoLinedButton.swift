@@ -7,7 +7,7 @@
 import UIKit
 import SnapKit
 
-
+//MARK: - ViewModel
 struct TwoLinedButtonViewModel {
     let primaryText: String
     let secondaryText: String
@@ -17,20 +17,7 @@ struct TwoLinedButtonViewModel {
 }
 
 final class TwoLinedButton: UIButton {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
+    //MARK: - Views
     private let leftImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
@@ -52,6 +39,21 @@ final class TwoLinedButton: UIButton {
         return label
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        clipsToBounds = true
+        layer.cornerRadius = 14
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     public func configure(with viewModel: TwoLinedButtonViewModel) {
         primaryLabel.text = viewModel.primaryText
         secondaryLabel.text = viewModel.secondaryText
@@ -60,16 +62,13 @@ final class TwoLinedButton: UIButton {
         self.layer.borderColor = viewModel.borderColor
     }
 }
-
+//MARK: - SetupUI
 extension TwoLinedButton {
     func setupUI() {
         addSubview(primaryLabel)
         addSubview(secondaryLabel)
         addSubview(leftImageView)
-        clipsToBounds = true
-        layer.cornerRadius = 14
       
-        
         primaryLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(13)
             make.leading.equalTo(leftImageView.snp.trailing).offset(12)
@@ -86,5 +85,4 @@ extension TwoLinedButton {
             make.top.bottom.equalToSuperview().inset(18)
         }
     }
-    
 }

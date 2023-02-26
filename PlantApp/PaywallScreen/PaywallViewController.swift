@@ -9,14 +9,18 @@ import SnapKit
 
 final class PaywallViewController: UIViewController {
     
+    var viewModel: PaywallViewModel!
+    
     private enum Const {
         static let oneMonthPrimaryText = "1 Month"
         static let oneMonthSecondaryText = "$2.99/month, auto renewable"
         static let oneYearPrimaryText = "1 Year"
         static let oneYearSecondaryText = "First 3 days free, then $529,99/year"
         static let paywallInfoText = "After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable"
+        static let bottomButtonText = "Try free for 3 days"
     }
     
+    //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -43,6 +47,17 @@ final class PaywallViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "paywall-header-text")
         return imageView
+    }()
+    
+    private let paywallCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(PaywallCollectionCell.self, forCellWithReuseIdentifier: PaywallCollectionCell.identifier)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
     }()
     
     private let oneMonthSubButton: TwoLinedButton = {
@@ -74,9 +89,8 @@ final class PaywallViewController: UIViewController {
     
     private let bottomButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Try free for 3 days", for: .normal)
+        button.setTitle(Const.bottomButtonText, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        
         button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         button.backgroundColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         button.layer.cornerRadius = 12.0
@@ -89,6 +103,7 @@ final class PaywallViewController: UIViewController {
         label.text = Const.paywallInfoText
         label.font = UIFont(name: "Rubik", size: 9)
         label.numberOfLines = 0
+        label.contentMode = .center
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.52)
         return label
     }()
@@ -131,11 +146,36 @@ final class PaywallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        self.viewModel = PaywallViewModel()
         
+        paywallCollectionView.delegate = self
+        paywallCollectionView.dataSource = self
+        setupUI()
     }
 }
 
+//MARK: - CollectionView Methods
+extension PaywallViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PaywallCollectionCell.identifier, for: indexPath) as! PaywallCollectionCell
+        let item = viewModel.getCell(at: indexPath.row)
+        cell.prepare(with: item)
+        return cell
+    }
+}
+
+extension PaywallViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 158, height: 164)
+    }
+}
+
+//MARK: - SetupUI
 private extension PaywallViewController {
     func setupUI() {
         self.view.addSubview(containerView)
@@ -144,6 +184,7 @@ private extension PaywallViewController {
         containerView.addSubview(paywallHeaderTextView)
         containerView.addSubview(bottomButton)
         containerView.addSubview(paywallInfoText)
+        containerView.addSubview(paywallCollectionView)
         containerView.addSubview(oneMonthSubButton)
         containerView.addSubview(oneYearSubButton)
         //        containerView.addSubview(bottomStackView)
@@ -175,6 +216,12 @@ private extension PaywallViewController {
             make.height.equalTo(71)
         }
         
+        paywallCollectionView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(24)
+            make.top.equalTo(paywallHeaderTextView.snp.bottom).offset(16)
+            make.height.equalTo(200)
+        }
+        
         oneMonthSubButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(oneYearSubButton.snp.top).offset(-26)
@@ -193,8 +240,8 @@ private extension PaywallViewController {
         
         paywallInfoText.snp.makeConstraints { make in
             make.top.equalTo(bottomButton.snp.bottom).offset(8)
-            make.bottom.equalToSuperview().inset(10)
             make.leading.trailing.equalTo(bottomButton)
+            make.height.equalTo(50)
         }
         //
         //        bottomStackView.snp.makeConstraints { make in

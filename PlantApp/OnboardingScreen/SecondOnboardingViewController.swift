@@ -8,6 +8,7 @@ import UIKit
 
 final class SecondOnboardingViewController: UIViewController {
     
+    //MARK: - Views
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -47,7 +48,6 @@ final class SecondOnboardingViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        
         button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         button.backgroundColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         button.layer.cornerRadius = 12.0
@@ -60,6 +60,7 @@ final class SecondOnboardingViewController: UIViewController {
     }
 }
 
+//MARK: - SetupUI
 private extension SecondOnboardingViewController {
     func setupUI() {
         self.view.addSubview(containerView)

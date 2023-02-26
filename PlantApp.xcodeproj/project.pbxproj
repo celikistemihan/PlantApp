@@ -47,6 +47,14 @@
 		F79A229129AB7D5400DF5449 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F79A228329AB7D5400DF5449 /* Rubik-SemiBold.ttf */; };
 		F79A229229AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F79A228429AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf */; };
 		F79A229429ABA2E000DF5449 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229329ABA2E000DF5449 /* UIButton+Extension.swift */; };
+		F79A229629ABACCA00DF5449 /* PaywallCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229529ABACCA00DF5449 /* PaywallCollectionCell.swift */; };
+		F79A229829ABB59A00DF5449 /* PaywallCellPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229729ABB59A00DF5449 /* PaywallCellPresentation.swift */; };
+		F79A229A29ABB76F00DF5449 /* PaywallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229929ABB76F00DF5449 /* PaywallViewModel.swift */; };
+		F79A229D29ABD9AB00DF5449 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229C29ABD9AB00DF5449 /* FirstVC.swift */; };
+		F79A229F29ABD9C500DF5449 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A229E29ABD9C500DF5449 /* SecondVC.swift */; };
+		F79A22A129ABD9CE00DF5449 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A029ABD9CE00DF5449 /* ThirdVC.swift */; };
+		F79A22A329ABD9D500DF5449 /* FourthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A229ABD9D500DF5449 /* FourthVC.swift */; };
+		F79A22A529ABD9DD00DF5449 /* FifthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A22A429ABD9DD00DF5449 /* FifthVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +99,14 @@
 		F79A228329AB7D5400DF5449 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-SemiBold.ttf"; path = "../../../../Downloads/Rubik/static/Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		F79A228429AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-SemiBoldItalic.ttf"; path = "../../../../Downloads/Rubik/static/Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		F79A229329ABA2E000DF5449 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		F79A229529ABACCA00DF5449 /* PaywallCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCollectionCell.swift; sourceTree = "<group>"; };
+		F79A229729ABB59A00DF5449 /* PaywallCellPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCellPresentation.swift; sourceTree = "<group>"; };
+		F79A229929ABB76F00DF5449 /* PaywallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewModel.swift; sourceTree = "<group>"; };
+		F79A229C29ABD9AB00DF5449 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
+		F79A229E29ABD9C500DF5449 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		F79A22A029ABD9CE00DF5449 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
+		F79A22A229ABD9D500DF5449 /* FourthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthVC.swift; sourceTree = "<group>"; };
+		F79A22A429ABD9DD00DF5449 /* FifthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +140,7 @@
 		F79A222529A7CFCB00DF5449 /* PlantApp */ = {
 			isa = PBXGroup;
 			children = (
+				F79A229B29ABD99800DF5449 /* VCS */,
 				F79A227629AB7D4800DF5449 /* Font */,
 				F79A225D29AA261E00DF5449 /* Home */,
 				F79A225A29AA250600DF5449 /* Data */,
@@ -185,6 +202,7 @@
 			children = (
 				F79A227329AB79A700DF5449 /* CustomView */,
 				F79A225529AA0C1200DF5449 /* PaywallViewController.swift */,
+				F79A229929ABB76F00DF5449 /* PaywallViewModel.swift */,
 			);
 			path = PaywallScreen;
 			sourceTree = "<group>";
@@ -247,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				F79A227429AB79B000DF5449 /* TwoLinedButton.swift */,
+				F79A229529ABACCA00DF5449 /* PaywallCollectionCell.swift */,
+				F79A229729ABB59A00DF5449 /* PaywallCellPresentation.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -270,6 +290,18 @@
 				F79A228429AB7D5400DF5449 /* Rubik-SemiBoldItalic.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		F79A229B29ABD99800DF5449 /* VCS */ = {
+			isa = PBXGroup;
+			children = (
+				F79A229C29ABD9AB00DF5449 /* FirstVC.swift */,
+				F79A229E29ABD9C500DF5449 /* SecondVC.swift */,
+				F79A22A029ABD9CE00DF5449 /* ThirdVC.swift */,
+				F79A22A229ABD9D500DF5449 /* FourthVC.swift */,
+				F79A22A429ABD9DD00DF5449 /* FifthVC.swift */,
+			);
+			path = VCS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,25 +394,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79A22A329ABD9D500DF5449 /* FourthVC.swift in Sources */,
 				F79A223F29A7D1C400DF5449 /* WelcomeViewController.swift in Sources */,
 				F79A224229A7D2C400DF5449 /* NavigationUtility.swift in Sources */,
+				F79A229F29ABD9C500DF5449 /* SecondVC.swift in Sources */,
 				F79A226129AA262C00DF5449 /* HomeViewModel.swift in Sources */,
+				F79A22A129ABD9CE00DF5449 /* ThirdVC.swift in Sources */,
 				F79A225929AA23A600DF5449 /* NetworkManager.swift in Sources */,
 				F79A226C29AA430200DF5449 /* PremiumButtonView.swift in Sources */,
 				F79A225129A8E90F00DF5449 /* WelcomeRouter.swift in Sources */,
 				F79A227129AAA45E00DF5449 /* CategoryCellPresentation.swift in Sources */,
+				F79A229D29ABD9AB00DF5449 /* FirstVC.swift in Sources */,
 				F79A225F29AA262600DF5449 /* HomeViewController.swift in Sources */,
 				F79A226429AA2A6D00DF5449 /* QuestionCell.swift in Sources */,
 				F79A227529AB79B000DF5449 /* TwoLinedButton.swift in Sources */,
+				F79A22A529ABD9DD00DF5449 /* FifthVC.swift in Sources */,
 				F79A222729A7CFCB00DF5449 /* AppDelegate.swift in Sources */,
 				F79A223C29A7D16D00DF5449 /* RoutingManager.swift in Sources */,
 				F79A225C29AA250D00DF5449 /* QuestionModel.swift in Sources */,
 				F79A225329A8E94B00DF5449 /* WelcomeViewModel.swift in Sources */,
+				F79A229629ABACCA00DF5449 /* PaywallCollectionCell.swift in Sources */,
+				F79A229829ABB59A00DF5449 /* PaywallCellPresentation.swift in Sources */,
 				F79A224D29A8C2FF00DF5449 /* SecondOnboardingViewController.swift in Sources */,
 				F79A226829AA2BEB00DF5449 /* QuestionCellPresentation.swift in Sources */,
 				F79A224529A7D2FF00DF5449 /* OnboardingContainerViewController.swift in Sources */,
 				F79A224B29A8BCC300DF5449 /* FirstOnboardingViewController.swift in Sources */,
 				F79A226E29AAA26700DF5449 /* CategoryCell.swift in Sources */,
+				F79A229A29ABB76F00DF5449 /* PaywallViewModel.swift in Sources */,
 				F79A226A29AA2C3E00DF5449 /* UIImage+Extension.swift in Sources */,
 				F79A224F29A8E8CE00DF5449 /* WelcomeRouterProtocol.swift in Sources */,
 				F79A229429ABA2E000DF5449 /* UIButton+Extension.swift in Sources */,
