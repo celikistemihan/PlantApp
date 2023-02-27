@@ -16,6 +16,12 @@ final class HomeViewController: UIViewController {
     enum Const {
         static let imageEdgeInsets = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
         static let titleOffset = UIOffset(horizontal: 0, vertical: -20)
+        static let searchBarPlaceholder = "Search for plants"
+        static let home = "Home"
+        static let diagnose = "Diagnose"
+        static let garden = "My Garden"
+        static let profile = "profile"
+        static let getStarted = "Get Started"
     }
     
     //TODO: ScrollView ekle parent olarak
@@ -39,10 +45,10 @@ final class HomeViewController: UIViewController {
     private func configureTabBar() {
         tabBarVC.tabBar.tintColor = UIColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)
         
-        let firstItem = UITabBarItem(title: "Home", image: UIImage(named: "home-icon"), tag: 0)
-        let secondItem = UITabBarItem(title: "Diagnose", image: UIImage(named: "diagnose-icon"), tag: 1)
-        let fourthItem = UITabBarItem(title: "My Garden", image: UIImage(named: "garden-icon"), tag: 3)
-        let fifthItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile-icon"), tag: 4)
+        let firstItem = UITabBarItem(title: Const.home, image: UIImage(named: "home-icon"), tag: 0)
+        let secondItem = UITabBarItem(title: Const.diagnose, image: UIImage(named: "diagnose-icon"), tag: 1)
+        let fourthItem = UITabBarItem(title: Const.garden, image: UIImage(named: "garden-icon"), tag: 3)
+        let fifthItem = UITabBarItem(title: Const.profile, image: UIImage(named: "profile-icon"), tag: 4)
         
         //Dummy ViewControllers
         let firstVC = FirstVC()
@@ -94,7 +100,6 @@ final class HomeViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.clipsToBounds = true
         return view
     }()
     
@@ -112,7 +117,7 @@ final class HomeViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for plants"
+        searchBar.placeholder = Const.searchBarPlaceholder
         searchBar.searchBarStyle = .default
         searchBar.backgroundImage = UIImage()
         searchBar.layer.cornerRadius = 12.0
@@ -142,7 +147,7 @@ final class HomeViewController: UIViewController {
     
     private let getStartedText: UILabel = {
         let label = UILabel()
-        label.text = "Get Started"
+        label.text = Const.getStarted
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()

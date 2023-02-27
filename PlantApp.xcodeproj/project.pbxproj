@@ -158,20 +158,20 @@
 		F79A222529A7CFCB00DF5449 /* PlantApp */ = {
 			isa = PBXGroup;
 			children = (
-				F79A229B29ABD99800DF5449 /* VCS */,
-				F79A227629AB7D4800DF5449 /* Font */,
-				F79A225D29AA261E00DF5449 /* Home */,
-				F79A225A29AA250600DF5449 /* Data */,
-				F79A225729AA239800DF5449 /* Network */,
-				F79A225429AA0C0500DF5449 /* PaywallScreen */,
-				F79A224329A7D2F300DF5449 /* OnboardingScreen */,
-				F79A224029A7D2BA00DF5449 /* Utilities */,
-				F79A223D29A7D1B200DF5449 /* WelcomeScreen */,
-				F79A223A29A7D15E00DF5449 /* Manager */,
 				F79A222629A7CFCB00DF5449 /* AppDelegate.swift */,
 				F79A222F29A7CFCD00DF5449 /* Assets.xcassets */,
-				F79A223129A7CFCD00DF5449 /* LaunchScreen.storyboard */,
+				F79A225A29AA250600DF5449 /* Data */,
+				F79A227629AB7D4800DF5449 /* Font */,
+				F79A225D29AA261E00DF5449 /* Home */,
 				F79A223429A7CFCD00DF5449 /* Info.plist */,
+				F79A223129A7CFCD00DF5449 /* LaunchScreen.storyboard */,
+				F79A223A29A7D15E00DF5449 /* Manager */,
+				F79A225729AA239800DF5449 /* Network */,
+				F79A224329A7D2F300DF5449 /* OnboardingScreen */,
+				F79A225429AA0C0500DF5449 /* PaywallScreen */,
+				F79A224029A7D2BA00DF5449 /* Utilities */,
+				F79A229B29ABD99800DF5449 /* DummyViewControllers */,
+				F79A223D29A7D1B200DF5449 /* WelcomeScreen */,
 			);
 			path = PlantApp;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		F79A229B29ABD99800DF5449 /* VCS */ = {
+		F79A229B29ABD99800DF5449 /* DummyViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				F79A229C29ABD9AB00DF5449 /* FirstVC.swift */,
@@ -322,7 +322,7 @@
 				F79A22A229ABD9D500DF5449 /* FourthVC.swift */,
 				F79A22A429ABD9DD00DF5449 /* FifthVC.swift */,
 			);
-			path = VCS;
+			path = DummyViewControllers;
 			sourceTree = "<group>";
 		};
 		F79A22AC29AC1F5E00DF5449 /* FirstOnboardingScreen */ = {

@@ -80,7 +80,8 @@ final class PaywallViewController: UIViewController {
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-    
+
+    //TODO: Refactor
     private let oneMonthSubButton: TwoLinedButton = {
         let button = TwoLinedButton()
         button.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneMonthPrimaryText, secondaryText: Const.oneMonthSecondaryText, imageView: "inactive", borderWidth: 0.5, borderColor: CGColor(red: 1, green: 1, blue: 1, alpha: 0.3)))
@@ -89,6 +90,7 @@ final class PaywallViewController: UIViewController {
         return button
     }()
     
+    //TODO: Refactor
     private let oneYearSubButton: TwoLinedButton = {
         let button = TwoLinedButton()
         button.configure(with: TwoLinedButtonViewModel(primaryText: Const.oneYearPrimaryText, secondaryText: Const.oneYearSecondaryText, imageView: "active", borderWidth: 1.5, borderColor: CGColor(red: 40/255, green: 175/255, blue: 110/255, alpha: 1)))

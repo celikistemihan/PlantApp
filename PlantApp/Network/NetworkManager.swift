@@ -16,12 +16,12 @@ final class FetchItemsService {
     private init() {}
     
     private enum Const {
-        static let baseUrl = "https://dummy-api-jtg6bessta-ey.a.run.app/getQuestions"
-        static let another = "https://dummy-api-jtg6bessta-ey.a.run.app/getCategories"
+        static let questionUrl = "https://dummy-api-jtg6bessta-ey.a.run.app/getQuestions"
+        static let categoryUrl = "https://dummy-api-jtg6bessta-ey.a.run.app/getCategories"
     }
     
     func fetchQuestionData(completion: @escaping QuestionListCompletionHandler) {
-        if let url = URL(string: Const.baseUrl) {
+        if let url = URL(string: Const.questionUrl) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let error = error {
                     print("Error occured: \(error.localizedDescription)")
@@ -37,9 +37,8 @@ final class FetchItemsService {
         }
     }
     
-    
     func fetchCategoryData(completion: @escaping CategoryListCompletionHandler) {
-        if let url = URL(string: Const.another) {
+        if let url = URL(string: Const.categoryUrl) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let error = error {
                     print("Error occured: \(error.localizedDescription)")

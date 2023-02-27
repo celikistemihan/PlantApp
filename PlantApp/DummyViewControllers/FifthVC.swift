@@ -1,13 +1,12 @@
 //
-//  SecondVC.swift
+//  FifthVC.swift
 //  PlantApp
 //
-//  Created by aisenur on 26.02.2023.
 //
 
 import UIKit
 
-final class SecondVC: UIViewController {
+final class FifthVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

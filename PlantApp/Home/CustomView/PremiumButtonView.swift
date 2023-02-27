@@ -12,7 +12,6 @@ final class PremiumButtonView: UIView {
         let view = UIView()
         view.layer.backgroundColor = UIColor(red: 0.142, green: 0.126, blue: 0.102, alpha: 1).cgColor
         view.layer.cornerRadius = 12
-        view.clipsToBounds = true
         return view
     }()
     
@@ -66,7 +65,6 @@ private extension PremiumButtonView {
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalTo(infoText.snp.leading)
             make.centerY.equalTo(infoText)
-            // make.width.equalTo(36)
         }
         
         infoText.snp.makeConstraints { make in
