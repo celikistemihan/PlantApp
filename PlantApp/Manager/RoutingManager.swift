@@ -13,6 +13,16 @@ final class RoutingManager {
         let controller = OnboardingContainerViewController()
         return controller
     }()
+    
+    lazy var homeViewController: HomeViewController = {
+        let controller = HomeViewController()
+        return controller
+    }()
+    
+    lazy var paywallViewController: PaywallViewController = {
+        let controller = PaywallViewController()
+        return controller
+    }()
 }
 
 extension RoutingManager {
@@ -23,6 +33,11 @@ extension RoutingManager {
     
     func proceedToPaywallScreen() {
         let controller = PaywallViewController()
+        NavigationUtility.push(controller)
+    }
+    
+    func proceedToHomeScreen() {
+        let controller = HomeViewController()
         NavigationUtility.push(controller)
     }
 }

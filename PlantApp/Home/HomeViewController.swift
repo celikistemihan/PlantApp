@@ -31,6 +31,8 @@ final class HomeViewController: UIViewController {
         
         categoryCollectionView.dataSource = self
         categoryCollectionView.delegate = self
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     //MARK: - TabBar Items Configuration

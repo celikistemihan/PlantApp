@@ -7,9 +7,14 @@
 import UIKit
 import SnapKit
 
+protocol PaywallViewControllerDelegate: AnyObject {
+    func didTapCloseButton()
+}
+
 final class PaywallViewController: UIViewController {
     
     var viewModel: PaywallViewModel!
+    weak var delegate: PaywallViewControllerDelegate?
     
     private enum Const {
         static let oneMonthPrimaryText = "1 Month"
@@ -26,19 +31,33 @@ final class PaywallViewController: UIViewController {
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.062, green: 0.117, blue: 0.089, alpha: 1).cgColor
         view.clipsToBounds = true
+        view.isUserInteractionEnabled = true
         return view
     }()
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.isUserInteractionEnabled = true
+        scrollView.clipsToBounds = true
         return scrollView
     }()
     
+   
+    
     private let closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "close-button"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "close-button"), for: .normal)
+        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
+        button.imageView?.isUserInteractionEnabled = true
         return button
     }()
+ 
+    
+    @objc func didTapCloseButton() {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        viewModel.proceedToHomeScreen()
+        delegate?.didTapCloseButton()
+    }
     
     private let headerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -151,7 +170,8 @@ final class PaywallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = PaywallViewModel()
+        self.viewModel = PaywallViewModel(router: PaywallRouter())
+        containerView.bringSubviewToFront(closeButton)
         
         paywallCollectionView.delegate = self
         paywallCollectionView.dataSource = self
@@ -232,10 +252,10 @@ private extension PaywallViewController {
         }
         
         closeButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(55)
+            make.top.equalToSuperview().inset(75)
             make.trailing.equalToSuperview().inset(16)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
+            make.width.equalTo(26)
+            make.height.equalTo(26)
         }
         
         paywallHeaderTextView.snp.makeConstraints { make in
