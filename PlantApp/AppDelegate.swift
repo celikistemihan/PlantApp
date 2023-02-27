@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: PaywallViewControllerDelegate {
     func didTapCloseButton() {
-        LocalState.hasOnboarded = true
+        //LocalState.hasOnboarded = true
     }
 }
 

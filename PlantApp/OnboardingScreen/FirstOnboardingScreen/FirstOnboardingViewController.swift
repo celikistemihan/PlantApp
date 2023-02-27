@@ -85,7 +85,7 @@ private extension FirstOnboardingViewController {
         
         bottomButton.snp.makeConstraints { make in
             make.top.equalTo(plantView.snp.bottom)
-            make.bottom.equalToSuperview().inset(76)
+            make.bottom.equalToSuperview().inset(36)
             make.height.equalTo(56)
             make.leading.trailing.equalToSuperview().inset(24)
         }

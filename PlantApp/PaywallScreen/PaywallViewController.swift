@@ -42,8 +42,6 @@ final class PaywallViewController: UIViewController {
         return scrollView
     }()
     
-   
-    
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "close-button"), for: .normal)
@@ -52,7 +50,6 @@ final class PaywallViewController: UIViewController {
         return button
     }()
  
-    
     @objc func didTapCloseButton() {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         viewModel.proceedToHomeScreen()

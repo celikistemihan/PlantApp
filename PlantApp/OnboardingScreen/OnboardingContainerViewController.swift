@@ -19,8 +19,15 @@ final class OnboardingContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurePageControl()
         self.navigationItem.setHidesBackButton(true, animated: true)
         setupUI()
+    }
+    
+    private func configurePageControl() {
+        let pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor(red: 19/255, green: 35/255, blue: 27/255, alpha: 0.25)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 19/255, green: 35/255, blue: 27/255, alpha: 1)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -44,7 +51,7 @@ final class OnboardingContainerViewController: UIViewController {
 //MARK: - SetupUI
 private extension OnboardingContainerViewController {
     func setupUI() {
-        view.backgroundColor = .purple
+        view.backgroundColor = .clear
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         
